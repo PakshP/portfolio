@@ -1,10 +1,15 @@
+.logo {
+  align-self: center;
+  height: 55px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .logo {
+    animation: logo-spin infinite 20s linear;
   }
 }
 
-@keyframes App-logo-spin {
+@keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -13,78 +18,55 @@
   }
 }
 
-.App-logo {
-  height: 55px;
-  pointer-events: none;
+.navBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 65px;
+  background-color: #b9b9b9b9;
+  transition: width 0.3s ease;
 }
 
-.topnav {
-  background-color: #b3b3b3;
-  overflow: hidden;
-  justify-content: space-between;
-  display: flex;
+.navBar.open {
+  width: 250px;
 }
 
-.topnav a {
-  float: left;
-  align-content: center;
-  padding-left: 5px;
-  padding-right: 5px;
+.navBar a{
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  color: white;
   text-decoration: none;
-  font-size: 17px;
 }
 
-.topnav a:hover {
-  transition: background-color 0.3s ease;
+.navBar a:hover{
   background-color: #ffffff;
+  color: black;
 }
 
 .navbuttons {
+  padding-top: 50px;
   font-family: monospace;
-  display: flex;
+  display: block;
   justify-content: space-between;
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 20%;
+  align-items: center;
 }
 
-.navbuttons a {
-  font-size: 20px;
-  width: 100%;
-  color: black;
-  text-align: center;
-}
-
-.menu-icon {
-  padding: 20px 20px;
-  cursor: pointer;
-  width: 30px;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
+.navbuttons img{
+  width: 40px;
+  padding-bottom: 13px;
+  padding-top: 13px;
+  padding-left: 13px;
+  padding-right: 13px;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
+  display: block;
 }
 
-.menu-icon:hover {
+.navbuttons img:hover{
   transition: background-color 0.3s ease;
   background-color: #ffffff;
-}
-
-.menu-icon span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: black;
-  transition: transform 0.5s ease;
-}
-
-.menu-icon.open span:first-child {
-  transform: translateY(8.5px) rotate(45deg);
-  position: relative;
-}
-
-.menu-icon.open span:last-child {
-  transform: translateY(-8.5px) rotate(-45deg);
-  position: relative;
+  color: black;
 }
