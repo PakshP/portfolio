@@ -8,7 +8,6 @@ import './App.css';
 
 function App() {
   const [isOpen, setIsOpen] = useState(true);
-
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const navRefs = {
     home: useRef(null),
@@ -19,6 +18,12 @@ function App() {
   
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleNavScroll = () => {
+    if (window.scrollY > 0) {
+      setIsOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -45,8 +50,9 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleNavScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isOpen]);
 
   return (
     <div>
