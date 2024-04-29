@@ -1,6 +1,6 @@
 .logo {
-  align-self: center;
-  height: 55px;
+  padding: 10px;
+  height: 40px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -18,18 +18,40 @@
   }
 }
 
+.navBar.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 160px;
+  background-color: #b9b9b9b9;
+  transition: width 0.3s ease;
+}
+
+.navButtonText {
+  display: none;
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  color: black;
+  padding-left: 10px;
+}
+
+.open .navButtonText {
+  display: block;
+}
+
 .navBar{
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 65px;
-  background-color: #b9b9b9b9;
+  background-color: #b9b9b9;
   transition: width 0.3s ease;
-}
-
-.navBar.open {
-  width: 250px;
+  overflow: hidden;
 }
 
 .navBar a{
@@ -69,4 +91,18 @@
   transition: background-color 0.3s ease;
   background-color: #ffffff;
   color: black;
+}
+
+.navbuttons a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.scrollIndicator {
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  transition: height 0.3s ease, top 0.3s ease;
 }
