@@ -1,9 +1,11 @@
-import SideBar from "./sidebar";
+import SideBar from "./components/SideBar.js";
+import Content from "./components/Content.js";
 
 function App() {
   return (
     <div className="flex">
       <SideBar />
+      <Content />
     </div>
   )
 }

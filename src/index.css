@@ -5,7 +5,7 @@
 @layer components {
   .sidebar-icon{
     @apply relative flex items-center justify-center
-           h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+           h-14 w-14 mt-2 mb-2 mx-auto shadow-lg
            bg-gray-800 text-secondary rounded-3xl
            hover:bg-gray-700 hover:text-primary
            hover:rounded-xl transition-all duration-300
@@ -18,5 +18,24 @@
            text-secondary bg-gray-900
            text-xs font-bold
            transition-all duration-100 scale-0 origin-left;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .logo {
+    animation: rotate 15s linear infinite;
+    @apply w-10 h-10;
+  }
+
+  .content {
+    @apply flex flex-col items-center justify-center
+           h-screen w-full bg-gray-900 text-secondary;
   }
 }
