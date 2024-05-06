@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html {
+  cursor: url('https://emojicdn.elk.sh/👋'), auto;
+}
+
 @layer components {
   .sidebar-icon{
     @apply relative flex items-center justify-center
@@ -31,11 +36,11 @@
 
   .logo {
     animation: rotate 15s linear infinite;
-    @apply w-10 h-10;
+    @apply w-10 h-10 shadow-lg;
   }
 
   .content {
     @apply flex flex-col items-center justify-center
-           h-screen w-full bg-gray-900 text-secondary;
+           h-screen w-full text-secondary;
   }
 }
