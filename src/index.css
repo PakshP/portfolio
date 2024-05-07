@@ -12,6 +12,15 @@
            cursor-pointer;
   }
 
+  .sidebar-active-icon {
+    @apply relative flex items-center justify-center
+           h-14 w-14 mt-2 mb-2 mx-auto shadow-lg
+           bg-gray-800 text-cyan-600 rounded-3xl
+           hover:bg-gray-700 hover:text-primary
+           hover:rounded-xl transition-all duration-300
+           cursor-pointer;
+  }
+
   .sidebar-tooltip {
     @apply absolute w-auto h-auto p-2 m-2 min-w-max left-14
            rounded-md shadow-md
@@ -34,12 +43,16 @@
     @apply w-10 h-10 shadow-lg;
   }
 
-  .content {
-    @apply flex flex-col items-center justify-center w-full text-secondary;
+  .content1 {
+    @apply flex flex-col items-center justify-center w-full text-secondary bg-gray-800;
+  }
+  
+  .content2 {
+    @apply flex flex-col items-center justify-center w-full text-secondary bg-gray-700;
   }
 
-  .welcome-nav {
-    @apply text-secondary font-semibold text-2xl;
+  .welcome-bar {
+    @apply text-secondary font-semibold text-2xl bg-gray-700 shadow-sm flex items-center;
   }
   
 }

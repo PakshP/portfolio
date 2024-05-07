@@ -4,7 +4,7 @@ import Content from "./components/Content.js";
 function App() {
   return (
     <div className="flex cursor-auto">
-      <SideBar />
+      <SideBar onIconClick={(section) => document.getElementById(section).scrollIntoView({ behavior: 'smooth' })}/>
       <Content />
     </div>
   )
