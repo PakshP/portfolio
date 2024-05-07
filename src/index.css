@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html {
-  cursor: url('https://emojicdn.elk.sh/👋'), auto;
-}
-
 @layer components {
   .sidebar-icon{
     @apply relative flex items-center justify-center
@@ -40,7 +35,11 @@ html {
   }
 
   .content {
-    @apply flex flex-col items-center justify-center
-           h-screen w-full text-secondary;
+    @apply flex flex-col items-center justify-center w-full text-secondary;
   }
+
+  .welcome-nav {
+    @apply text-secondary font-semibold text-2xl;
+  }
+  
 }

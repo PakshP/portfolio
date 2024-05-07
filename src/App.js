@@ -3,7 +3,7 @@ import Content from "./components/Content.js";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex cursor-auto">
       <SideBar />
       <Content />
     </div>
