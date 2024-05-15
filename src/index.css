@@ -5,16 +5,16 @@
 @layer components {
   .sidebar-icon{
     @apply relative flex items-center justify-center
-           h-14 w-14 mt-2 mb-2 mx-auto shadow-lg
+           h-14 w-14 mt-2 mb-2 mx-auto
            bg-gray-800 text-secondary rounded-3xl
-           hover:bg-gray-700 hover:text-primary
+           hover:bg-[#b3b3b3] hover:text-primary
            hover:rounded-xl transition-all duration-300
            cursor-pointer;
   }
 
   .sidebar-active-icon {
     @apply relative flex items-center justify-center
-           h-14 w-14 mt-2 mb-2 mx-auto shadow-lg
+           h-14 w-14 mt-2 mb-2 mx-auto 
            bg-gray-800 text-cyan-600 rounded-3xl
            hover:bg-gray-700 hover:text-primary
            hover:rounded-xl transition-all duration-300
@@ -40,19 +40,19 @@
 
   .logo {
     animation: rotate 15s linear infinite;
-    @apply w-10 h-10 shadow-lg;
+    @apply w-14 h-14 rounded-full;
   }
 
   .content1 {
-    @apply flex flex-col items-center justify-center w-full text-secondary bg-gray-800;
+    @apply flex flex-col items-center justify-center w-full text-secondary bg-[#b3b3b3];
   }
   
   .content2 {
-    @apply flex flex-col items-center justify-center w-full text-secondary bg-gray-700;
+    @apply flex flex-col items-center justify-center w-full text-secondary bg-[#272b2e];
   }
 
   .welcome-bar {
-    @apply text-secondary font-semibold text-2xl bg-gray-700 shadow-sm flex items-center;
+    @apply text-secondary font-semibold text-2xl bg-gray-700 flex items-center;
   }
   
 }

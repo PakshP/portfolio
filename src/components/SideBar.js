@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import logo from '../assets/Logo.png';
+import logo from '../assets/logo-home.png';
 import { FaHome, FaInfoCircle, FaAddressBook } from 'react-icons/fa';
 import { FaGear, FaLinkedinIn, FaGithub } from 'react-icons/fa6';
 import { IoRemoveOutline } from 'react-icons/io5';
 import PropTypes from 'prop-types';
 
 const SideBar = () => {
+    // eslint-disable-next-line
     const [ activeSection, setActiveSection] = useState('');
+
+    
 
     const handleIconClick = (section) => {
         setActiveSection(section);
@@ -16,7 +19,7 @@ const SideBar = () => {
     return (
         <div className='fixed top-0 left-0 h-screen w-20 m-0
                         flex flex-col bg-primary text-secondary shadow-2xl'>
-            <div className='rounded-3xl bg-white relative flex items-center justify-center h-14 w-14 mt-5 mb-2 mx-auto shadow-lg'>
+            <div className='rounded-full relative flex items-center justify-center h-14 w-14 mt-5 mb-2 mx-auto'>
                 <img src={logo} alt='logo' className='logo'/>
             </div>
             <IoRemoveOutline size='28' className='relative flex items-center justify-center mt-2 mb-2 mx-auto' />
