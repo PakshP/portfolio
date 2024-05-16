@@ -6,7 +6,7 @@
   .sidebar-icon {
     @apply relative flex items-center justify-center
            h-auto w-auto mt-7 mb-10 mx-auto
-           text-[#b4bcc2] text-xl font-mono transition-all duration-300
+           text-[#b4bcc2] text-xl font-semibold transition-all duration-300
            cursor-pointer;
   }
 
@@ -29,10 +29,48 @@
   .sidebar-icon::before {
     content: '';
     @apply absolute h-1 transition-all duration-500 bg-[#094889] ease-in-out
-           w-0 top-1/2 left-[-10%] right-[-10%] transform translate-y-[-50%];
+           w-0 top-[60%] left-[-10%] right-[-10%] transform translate-y-[-50%];
   }
 
   .sidebar-icon:hover::before {
     @apply w-[120%];
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #b4bcc2; }
+  }
+
+  .typewriter text {
+    overflow: hidden;
+    border-right: 0.15em solid #b4bcc2;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end);
+  }
+
+  .name-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .line {
+    height: 2px;
+    background-color: #b4bcc2;
+    animation: expand-line 2s forwards;
+  }
+
+  @keyframes expand-line {
+    from {
+      width: 0;
+    }
+    to {
+      width: 200px; /* Adjust the width as needed */
+    }
   }
 }
