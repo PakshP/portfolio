@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import logo from '../assets/logo-home.png';
-import { FaHome, FaInfoCircle, FaAddressBook } from 'react-icons/fa';
-import { FaGear, FaLinkedinIn, FaGithub } from 'react-icons/fa6';
-import { IoRemoveOutline } from 'react-icons/io5';
+import logo from '../assets/Logo.png';
+import { FaLinkedinIn, FaGithub } from 'react-icons/fa6';
 import PropTypes from 'prop-types';
 
 const SideBar = () => {
-    // eslint-disable-next-line
-    const [ activeSection, setActiveSection] = useState('');
+    const [activeSection, setActiveSection] = useState('');
 
-    
+    console.log(activeSection);
 
     const handleIconClick = (section) => {
         setActiveSection(section);
@@ -17,36 +14,44 @@ const SideBar = () => {
     };
 
     return (
-        <div className='fixed top-0 left-0 h-screen w-20 m-0
-                        flex flex-col bg-primary text-secondary shadow-2xl'>
-            <div className='rounded-full relative flex items-center justify-center h-14 w-14 mt-5 mb-2 mx-auto'>
-                <img src={logo} alt='logo' className='logo'/>
+        <div className='fixed top-0 left-0 h-screen w-32 m-0 flex flex-col bg-[#111111] justify-between'>
+            <div>
+                <div className='logo'>
+                    <img src={logo} alt='logo' />
+                </div>
+                <button className='sidebar-icon' onClick={() => handleIconClick('home')} onKeyDown={() => {}}>
+                    Home
+                </button>
+                <button className='sidebar-icon' onClick={() => handleIconClick('about')} onKeyDown={() => {}}>
+                    About
+                </button>
+                <button className='sidebar-icon' onClick={() => handleIconClick('skills')} onKeyDown={() => {}}>
+                    Skills
+                </button>
+                <button className='sidebar-icon' onClick={() => handleIconClick('projects')} onKeyDown={() => {}}>
+                    Projects
+                </button>
+                <button className='sidebar-icon' onClick={() => handleIconClick('contact')} onKeyDown={() => {}}>
+                    Contact
+                </button>
             </div>
-            <IoRemoveOutline size='28' className='relative flex items-center justify-center mt-2 mb-2 mx-auto' />
-            <SideBarIcon icon={<FaLinkedinIn size='28' />} text='LinkedIn' onClick={() => window.open('https://www.linkedin.com/in/paksh-patel')} />
-            <SideBarIcon icon={<FaGithub size='28' />} text='GitHub' onClick={() => window.open('https://github.com/PakshP')} />
-            <IoRemoveOutline size='28' className='relative flex items-center justify-center mt-2 mb-2 mx-auto' />
-            <SideBarIcon icon={<FaHome size='28' />} text='Home' onClick={() => handleIconClick('home')} />
-            <SideBarIcon icon={<FaInfoCircle size='28' />} text='About' onClick={() => handleIconClick('about')} />
-            <SideBarIcon icon={<FaGear size='28' />} text='Skills' onClick={() => handleIconClick('skills')} />
-            <SideBarIcon icon={<FaAddressBook size='28' />} text='Contact' onClick={() => handleIconClick('contact')} />
+            <div className='mb-5'>
+                <SideBarIcon icon={<FaLinkedinIn size='28' />} text='LinkedIn' onClick={() => window.open('https://www.linkedin.com/in/paksh-patel')} />
+                <SideBarIcon icon={<FaGithub size='28' />} text='GitHub' onClick={() => window.open('https://github.com/PakshP')} />
+            </div>
         </div>
     );
 };
 
-const SideBarIcon = ({ icon, text, onClick }) => (
-    <button className='sidebar-icon group' onClick={onClick}>
+const SideBarIcon = ({ icon, onClick }) => (
+    <button className='sidebar-links group' onClick={onClick}>
         {icon}
-        <span className='sidebar-tooltip group-hover:scale-100 translate-x-2'>
-            {text}
-        </span>
     </button>
-)
+);
 
 SideBarIcon.propTypes = {
     icon: PropTypes.element.isRequired,
-    text: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
-}
+};
 
 export default SideBar;

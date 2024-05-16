@@ -3,56 +3,36 @@
 @tailwind utilities;
 
 @layer components {
-  .sidebar-icon{
+  .sidebar-icon {
     @apply relative flex items-center justify-center
-           h-14 w-14 mt-2 mb-2 mx-auto
-           bg-gray-800 text-secondary rounded-3xl
-           hover:bg-[#b3b3b3] hover:text-primary
-           hover:rounded-xl transition-all duration-300
+           h-auto w-auto mt-7 mb-10 mx-auto
+           text-[#b4bcc2] text-xl font-mono transition-all duration-300
            cursor-pointer;
   }
 
-  .sidebar-active-icon {
+  .sidebar-links {
     @apply relative flex items-center justify-center
-           h-14 w-14 mt-2 mb-2 mx-auto 
-           bg-gray-800 text-cyan-600 rounded-3xl
-           hover:bg-gray-700 hover:text-primary
-           hover:rounded-xl transition-all duration-300
-           cursor-pointer;
-  }
-
-  .sidebar-tooltip {
-    @apply absolute w-auto h-auto p-2 m-2 min-w-max left-14
-           rounded-md shadow-md
-           text-secondary bg-gray-900
-           text-xs font-bold
-           transition-all duration-100 scale-0 origin-left;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+           h-auto w-auto mt-7 mb-7 mx-auto hover:text-[#094889]
+           text-[#b4bcc2] text-xl font-mono transition-all duration-300
+           cursor-pointer
   }
 
   .logo {
-    animation: rotate 15s linear infinite;
-    @apply w-14 h-14 rounded-full;
+    @apply relative flex items-center justify-center
+           h-28 w-28 mt-2 mb-2 mx-auto;
   }
 
-  .content1 {
-    @apply flex flex-col items-center justify-center w-full text-secondary bg-[#b3b3b3];
+  .content {
+    @apply text-secondary bg-[#111111];
   }
   
-  .content2 {
-    @apply flex flex-col items-center justify-center w-full text-secondary bg-[#272b2e];
+  .sidebar-icon::before {
+    content: '';
+    @apply absolute h-1 transition-all duration-500 bg-[#094889] ease-in-out
+           w-0 top-1/2 left-[-10%] right-[-10%] transform translate-y-[-50%];
   }
 
-  .welcome-bar {
-    @apply text-secondary font-semibold text-2xl bg-gray-700 flex items-center;
+  .sidebar-icon:hover::before {
+    @apply w-[120%];
   }
-  
 }
