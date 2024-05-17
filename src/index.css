@@ -14,7 +14,7 @@
     @apply relative flex items-center justify-center
            h-auto w-auto mt-7 mb-7 mx-auto hover:text-[#094889]
            text-[#b4bcc2] text-xl font-mono transition-all duration-300
-           cursor-pointer
+           cursor-pointer;
   }
 
   .logo {
@@ -23,7 +23,7 @@
   }
 
   .content {
-    @apply text-secondary bg-[#111111];
+    @apply text-secondary bg-[#111111] h-full;
   }
   
   .sidebar-icon::before {
@@ -36,41 +36,15 @@
     @apply w-[120%];
   }
 
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+  .word-container {
+    @apply relative overflow-hidden;
   }
 
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #b4bcc2; }
+  .word-background {
+    @apply absolute left-0 transition-transform duration-500 ease-in-out;
   }
 
-  .typewriter text {
-    overflow: hidden;
-    border-right: 0.15em solid #b4bcc2;
-    white-space: nowrap;
-    margin: 0 auto;
-    animation: typing 3.5s steps(40, end);
-  }
-
-  .name-container {
-    display: flex;
-    align-items: center;
-  }
-
-  .line {
-    height: 2px;
-    background-color: #b4bcc2;
-    animation: expand-line 2s forwards;
-  }
-
-  @keyframes expand-line {
-    from {
-      width: 0;
-    }
-    to {
-      width: 200px; /* Adjust the width as needed */
-    }
+  .word-text {
+    @apply transition-opacity duration-500 ease-in-out;
   }
 }

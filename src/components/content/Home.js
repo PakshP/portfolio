@@ -1,53 +1,44 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from 'prop-types';
-
-const NameAnimation = ({ name }) => {
-    const [displayName, setDisplayName] = useState('');
-    const [showLine, setShowLine] = useState(false);
-    const characters = '闩乃⼕ᗪ㠪千Ꮆ廾工丿长㇄爪𝓝ㄖ尸Ɋ尺丂ㄒㄩᐯ山乂ㄚ乙闩乃⼕ᗪ㠪千Ꮆ廾工丿长㇄爪𝓝ㄖ尸Ɋ尺丂ㄒㄩᐯ山乂ㄚ乙丨己㇋丩丂꧵㇆⽇꧶꧰';
-
-    useEffect(() => {
-        let iterations = 0;
-        const maxIterations = 20; // Number of iterations before displaying the actual character
-
-        const interval = setInterval(() => {
-            if (iterations >= maxIterations) {
-                clearInterval(interval);
-                setDisplayName(name);
-                setShowLine(true); // Show the line after the name animation
-            } else {
-                let newName = name.split('').map((char, index) => {
-                    if (index <= iterations / 2) {
-                        return char;
-                    }
-                    return characters[Math.floor(Math.random() * characters.length)];
-                }).join('');
-
-                setDisplayName(newName);
-                iterations++;
-            }
-        }, 100);
-
-        return () => clearInterval(interval);
-    }, [name]);
-
-    return (
-        <div className="name-container w-auto flex">
-            <text className="text-3xl font-bold text-[#b4bcc2]">{displayName}</text>
-            {showLine && <div className="line ml-4"></div>}
-        </div>
-    );
-};
-
-NameAnimation.propTypes = {
-    name: PropTypes.string.isRequired
-};
+import React, { useState, useEffect, useCallback } from "react";
 
 const Home = () => {
+    const words = ["Developer", "Learner", "Prototyper"];
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    const updateWordIndex = useCallback(() => {
+        setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+        setIsAnimating(false);
+    }, [words.length]);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setIsAnimating(true);
+            setTimeout(updateWordIndex, 800);
+        }, 5000);
+
+        return () => clearInterval(intervalId);
+    }, [updateWordIndex]);
+
+
+
     return (
-        <div id="home" className="content h-full ">
-            <div className="flex flex-col w-min bg-red-50">
-                <NameAnimation name="Paksh Patel" />
+        <div id="home" className="content flex flex-col items-center justify-center h-screen text-white">
+            <div className="flex flex-col items-start">
+                <div className="flex items-center">
+                    <h1 className="text-9xl font-semibold mb-2">PAKSH PATEL</h1>
+                </div>
+                <div className="flex items-center">
+                    <span className="border-t-2 border-[#b4bcc2] translate-x-[-7px] translate-y-[-5px] w-[378px] mx-4"></span>
+                    <span className="text-6xl font-semibold text-[#b4bcc2] mr-2 translate-y-[-13px]">+</span>
+                    <div className="relative overflow-hidden w-[310px]">
+                        <div
+                            className={`bg-[#094889] z-10 w-[500px] h-[70px] absolute left-0 transition-transform duration-500 ease-in-out ${
+                                isAnimating ? "translate-x-0" : "-translate-x-[500px]"
+                            }`}
+                        ></div>
+                        <h2 className={`text-6xl font-semibold h-20 transition-opacity duration-500 ease-in-out ${isAnimating ? "opacity-0" : "opacity-100"}`}>{words[currentWordIndex]}</h2>
+                    </div>
+                </div>
             </div>
         </div>
     );
